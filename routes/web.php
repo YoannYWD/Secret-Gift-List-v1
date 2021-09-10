@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\GiftController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/accueil/login', [UserController::class, 'index'])->name('login');
+Route::post('/accueil/user-login', [UserController::class, 'userLogin'])->name('userLogin');
+Route::get('/accueil/registration', [UserController::class, 'registration'])->name('registration');
+Route::post('/accueil/user-registration', [UserController::class, 'userRegistration'])->name('userRegistration');
+Route::get('/accueil/user-signout', [UserController::class, 'signout'])->name('signout');
+
+
+Route::resource('/accueil', GroupController::class)->middleware('auth');
+
+Route::resource('/accueil/gifts', GiftController::class)->middleware('auth');

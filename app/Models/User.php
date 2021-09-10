@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Group;
+use App\Models\Gift;
+use App\Models\Comment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,9 +20,16 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'lastname',
+        'firstname',
+        'nickname',
         'email',
         'password',
+        'wish1',
+        'wish2',
+        'wish3',
+        'wish4',
+        'wish5'
     ];
 
     /**
@@ -41,4 +50,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Cardinalité
+    public function group() {
+        return $this->hasOne(Group::class);
+    }
+    public function gifts() {
+        return $this->hasMany(Gift::class);
+    }
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
