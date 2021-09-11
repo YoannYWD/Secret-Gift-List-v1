@@ -28,6 +28,6 @@ Route::post('/accueil/user-registration', [UserController::class, 'userRegistrat
 Route::get('/accueil/user-signout', [UserController::class, 'signout'])->name('signout');
 
 
-Route::resource('/accueil', GroupController::class)->middleware('auth');
+Route::resource('/accueil', GroupController::class)->middleware('auth')->only('index');
 
-Route::resource('/accueil/gifts', GiftController::class)->middleware('auth');
+Route::resource('/accueil/gifts', GiftController::class)->middleware('auth')->except('show');

@@ -12,6 +12,11 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{$group->name}}</h5>
+                        <form action="{{route('gifts.index')}}" method="GET">
+                            @csrf
+                            <input type="hidden" name="group_id" value="{{$group->id}}">
+                            <button type="submit" class="btn btn-primary">Voir les cadeaux</button>
+                        </form>
                     </div>
                 </div>
             </div>

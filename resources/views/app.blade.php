@@ -44,7 +44,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-3">
+        <div class="col-4 offset-4 text-center">
             @if(session()->get("success"))
                 <div class="alert alert-success">
                     {{ session()->get("success") }}

@@ -9,7 +9,7 @@
                 <div class="card">
                     <h3 class="card-header text-center">S'enregistrer</h3>
                     <div class="card-body">
-                        <form action="{{route('userRegistration')}}" method="POST">
+                        <form action="{{route('userRegistration')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="text" placeholder="Nom" class="form-control" name="lastname" required autofocus>

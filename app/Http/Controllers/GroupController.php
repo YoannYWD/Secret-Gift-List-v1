@@ -11,7 +11,7 @@ class GroupController extends Controller
     public function index() {
         $groups = DB::table('groups')
         ->join('users', 'groups.user_id', '=', 'users.id')
-        ->select('groups.name', 'users.wish1', 'groups.user_id')
+        ->select('groups.id', 'groups.name', 'groups.user_id', 'users.wish1')
         ->get();
         return view('groups/index', compact('groups'));
     }
