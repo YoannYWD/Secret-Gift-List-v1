@@ -26,9 +26,9 @@
                         <p>{{$gift->price}}€</p>
                         <p>{{$gift->description}}</p>
                         <p>Posté par {{$gift->user_nickname}}</p>
-                        <form action="" method="GET">
+                        <form action="{{route('comments.create')}}" method="GET">
                             @csrf
-                            <input type="hidden" value="" name="id">
+                            <input type="hidden" value="{{$gift->id}}" name="id">
                             <button type="submit" class="btn btn-primary mb-2">Commenter</button>
                         </form>
                         @if($gift->user_id == auth()->id())

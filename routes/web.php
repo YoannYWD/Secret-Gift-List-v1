@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\GiftController;
-
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +31,5 @@ Route::get('/accueil/user-signout', [UserController::class, 'signout'])->name('s
 Route::resource('/accueil', GroupController::class)->middleware('auth')->only('index');
 
 Route::resource('/accueil/gifts', GiftController::class)->middleware('auth')->except('show');
+
+Route::resource('/accueil/gifts/comments', CommentController::class)->middleware('auth')->except('index');
